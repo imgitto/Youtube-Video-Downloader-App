@@ -145,6 +145,9 @@
 					if(data.formats[i].container != "mp4"){
 						continue;
 					}
+					if(data.formats[i].audioCodec == null){
+						continue;
+					}
 					html += `
 						<option value="${data.formats[i].itag}">
 							${data.formats[i].container} - ${data.formats[i].qualityLabel}
