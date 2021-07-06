@@ -142,14 +142,14 @@
 
 				let html = "";
 				for(let i=0;i<data.formats.length;i++){
-					if(data.formats[i].container != "mp4"){
+					if(data.formats[i].container != "mp4" || data.formats[i].container != "webm"){
 						continue;
 					}
 					if(data.formats[i].audioCodec == null){
 						continue;
 					}
 					html += `
-						<option value="${data.formats[i].itag}">
+						<option value="${data.formats[i].itag}|${data.formats[i].container}">
 							${data.formats[i].container} - ${data.formats[i].qualityLabel}
 						</option>
 					`;
@@ -173,8 +173,10 @@
 
 		document.querySelector("#download-btn").addEventListener("click",function(){
 			let videoURL = document.querySelector("#video-url").value;
-			let itag = document.querySelector("#download-options").value;
-			window.open(host + "download?videoURL="+videoURL+"&itag="+itag);
+			let details = document.querySelector("#download-options").value.split("|");
+			let itag = details[0];
+			let format = details[1];
+			window.open(host + "download?videoURL="+videoURL+"&itag="+itag+"&format="+format);
 		});
 	</script>
 </body>
