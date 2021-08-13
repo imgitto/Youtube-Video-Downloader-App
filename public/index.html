@@ -121,7 +121,7 @@
 	</div>
 
 	<script type="text/javascript">
-		const host = "http://"+window.location.hostname;
+		const host = "http://"+window.location.host+"/";
 		document.querySelector("#get-video-info-btn").addEventListener("click",function(){
 			let videoURL = document.querySelector("#videoURL").value.trim();
 			if(videoURL.length == 0){
