@@ -6,5 +6,5 @@
 2. Open terminal and execture below commands
 ```bash
 $ npm install
-$ node code.js
+$ npm start
 ```
